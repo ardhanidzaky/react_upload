@@ -2,11 +2,9 @@ import {useState} from 'react';
 
 function FileForm() {
     const [file, setFile] = useState(null); 
-    // const [files, setFiles] = useState([]); // Uncomment: To upload more than 1 file.
 
     const handleFileInputChange = (event) => {
         setFile(event.target.files[0])
-        // setFiles(Array.from(event.target.files)) // Uncomment: To upload more than 1 file.
     }
 
     const handleSubmit = async (event) => {
@@ -14,11 +12,6 @@ function FileForm() {
 
         const formData = new FormData();
         formData.append('file_upload', file);
-
-        // Uncomment: To upload more than 1 file.
-        // files.forEach(file => {
-        //     formData.append('file_upload', file);
-        // })
 
         try {
             const endpoint = 'http://127.0.0.1:8000/predict/'
